@@ -1,0 +1,586 @@
+{
+	"info": {
+		"_postman_id": "d2d06011-e535-4ac6-a378-cc31e10aa13a",
+		"name": "Event-Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43231585"
+	},
+	"item": [
+		{
+			"name": "register a new user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"testuser\",\r\n  \"email\": \"test@example.com\",\r\n  \"password\": \"test1234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"testuser\",\r\n  \"password\": \"test1234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create an event",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAwNzM5NiwianRpIjoiOTM1YWE3MmItYmI0NC00OWZiLTkxOTgtMjVjZTViNTdhZWE0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMDczOTYsImNzcmYiOiI0ZGNlOGQ5Zi1kMzY3LTQyNGYtYTE3Yy04OTAwMTM2MTJmYTgiLCJleHAiOjE3NDgwMDgyOTZ9.YLFn7yobiufIEECd8GjZKy0P2Fbv4a7YmkU0F9taRCQ",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Project Sync\",\r\n  \"description\": \"Weekly project update meeting\",\r\n  \"start_time\": \"2025-06-01T10:00:00\",\r\n  \"end_time\": \"2025-06-01T11:00:00\",\r\n  \"location\": \"Zoom\",\r\n  \"is_recurring\": true,\r\n  \"recurrence_pattern\": \"weekly\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all events",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAwNzM5NiwianRpIjoiOTM1YWE3MmItYmI0NC00OWZiLTkxOTgtMjVjZTViNTdhZWE0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMDczOTYsImNzcmYiOiI0ZGNlOGQ5Zi1kMzY3LTQyNGYtYTE3Yy04OTAwMTM2MTJmYTgiLCJleHAiOjE3NDgwMDgyOTZ9.YLFn7yobiufIEECd8GjZKy0P2Fbv4a7YmkU0F9taRCQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get specific event",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAwNzM5NiwianRpIjoiOTM1YWE3MmItYmI0NC00OWZiLTkxOTgtMjVjZTViNTdhZWE0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMDczOTYsImNzcmYiOiI0ZGNlOGQ5Zi1kMzY3LTQyNGYtYTE3Yy04OTAwMTM2MTJmYTgiLCJleHAiOjE3NDgwMDgyOTZ9.YLFn7yobiufIEECd8GjZKy0P2Fbv4a7YmkU0F9taRCQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events/{{event_id}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"{{event_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update an event",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAwNzM5NiwianRpIjoiOTM1YWE3MmItYmI0NC00OWZiLTkxOTgtMjVjZTViNTdhZWE0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMDczOTYsImNzcmYiOiI0ZGNlOGQ5Zi1kMzY3LTQyNGYtYTE3Yy04OTAwMTM2MTJmYTgiLCJleHAiOjE3NDgwMDgyOTZ9.YLFn7yobiufIEECd8GjZKy0P2Fbv4a7YmkU0F9taRCQ",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"location\": \"Google Meet\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events/{{event_id}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"{{event_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete an event",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAwNzM5NiwianRpIjoiOTM1YWE3MmItYmI0NC00OWZiLTkxOTgtMjVjZTViNTdhZWE0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMDczOTYsImNzcmYiOiI0ZGNlOGQ5Zi1kMzY3LTQyNGYtYTE3Yy04OTAwMTM2MTJmYTgiLCJleHAiOjE3NDgwMDgyOTZ9.YLFn7yobiufIEECd8GjZKy0P2Fbv4a7YmkU0F9taRCQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events/{{event_id}}",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"{{event_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "batch create event",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAwODc2MywianRpIjoiMDYyYjhmODgtYjlmOC00MmFmLTk2MDAtNjU3ZjJhMTVjNzE5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMDg3NjMsImNzcmYiOiI2NDI2NzE2My0xZDEzLTQ1ODUtYTY4My0wNjc1ODdlNjBjNjkiLCJleHAiOjE3NDgwMDk2NjN9.H52UsjXfV-xnOXXuN4A83k3MNYrV7Epq3itL0iaYFA4",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"events\": [\r\n    {\r\n      \"title\": \"Sprint Planning\",\r\n      \"description\": \"Plan sprint tasks\",\r\n      \"start_time\": \"2025-06-03T09:00:00\",\r\n      \"end_time\": \"2025-06-03T10:00:00\",\r\n      \"location\": \"Conference Room\",\r\n      \"is_recurring\": false\r\n    },\r\n    {\r\n      \"title\": \"Demo Day\",\r\n      \"description\": \"Final demo presentation\",\r\n      \"start_time\": \"2025-06-05T15:00:00\",\r\n      \"end_time\": \"2025-06-05T16:00:00\",\r\n      \"location\": \"Main Hall\",\r\n      \"is_recurring\": false\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events/batch",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "share event with users",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAwODc2MywianRpIjoiMDYyYjhmODgtYjlmOC00MmFmLTk2MDAtNjU3ZjJhMTVjNzE5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMDg3NjMsImNzcmYiOiI2NDI2NzE2My0xZDEzLTQ1ODUtYTY4My0wNjc1ODdlNjBjNjkiLCJleHAiOjE3NDgwMDk2NjN9.H52UsjXfV-xnOXXuN4A83k3MNYrV7Epq3itL0iaYFA4",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"users\": [\r\n    {\r\n      \"user_id\": 1,\r\n      \"role\": \"Viewer\"\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events/{{event_id}}/share",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"{{event_id}}",
+						"share"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list permission for event",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAxNTk2MywianRpIjoiZjFmNzFlMzQtY2YxZC00MzIyLThhN2UtOGYxMjk4NjQ0YjJiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMTU5NjMsImNzcmYiOiJkNGU3NDMzMC03NTZhLTQxYmYtYTRhNS01ZjM2NmQxMDNhZTEiLCJleHAiOjE3NDgwMTY4NjN9.mcq439Jfz8OaFxnSmV_Nl2PEvD9_hq1xD7gdFVEKbQY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events/{{event_id}}/permissions",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"{{event_id}}",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user's permission",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAxNTk2MywianRpIjoiZjFmNzFlMzQtY2YxZC00MzIyLThhN2UtOGYxMjk4NjQ0YjJiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMTU5NjMsImNzcmYiOiJkNGU3NDMzMC03NTZhLTQxYmYtYTRhNS01ZjM2NmQxMDNhZTEiLCJleHAiOjE3NDgwMTY4NjN9.mcq439Jfz8OaFxnSmV_Nl2PEvD9_hq1xD7gdFVEKbQY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"role\": \"Editor\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events/{{event_id}}/permissions/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"{{event_id}}",
+						"permissions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove user's permission",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAxNTk2MywianRpIjoiZjFmNzFlMzQtY2YxZC00MzIyLThhN2UtOGYxMjk4NjQ0YjJiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMTU5NjMsImNzcmYiOiJkNGU3NDMzMC03NTZhLTQxYmYtYTRhNS01ZjM2NmQxMDNhZTEiLCJleHAiOjE3NDgwMTY4NjN9.mcq439Jfz8OaFxnSmV_Nl2PEvD9_hq1xD7gdFVEKbQY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events/{{event_id}}/permissions/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"{{event_id}}",
+						"permissions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get event version history",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAxNTk2MywianRpIjoiZjFmNzFlMzQtY2YxZC00MzIyLThhN2UtOGYxMjk4NjQ0YjJiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMTU5NjMsImNzcmYiOiJkNGU3NDMzMC03NTZhLTQxYmYtYTRhNS01ZjM2NmQxMDNhZTEiLCJleHAiOjE3NDgwMTY4NjN9.mcq439Jfz8OaFxnSmV_Nl2PEvD9_hq1xD7gdFVEKbQY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events/{{event_id}}/history/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"{{event_id}}",
+						"history",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get changelog",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAxNTk2MywianRpIjoiZjFmNzFlMzQtY2YxZC00MzIyLThhN2UtOGYxMjk4NjQ0YjJiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMTU5NjMsImNzcmYiOiJkNGU3NDMzMC03NTZhLTQxYmYtYTRhNS01ZjM2NmQxMDNhZTEiLCJleHAiOjE3NDgwMTY4NjN9.mcq439Jfz8OaFxnSmV_Nl2PEvD9_hq1xD7gdFVEKbQY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events/{{event_id}}/changelog",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"{{event_id}}",
+						"changelog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "diff b/w two versions",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODAxNTk2MywianRpIjoiZjFmNzFlMzQtY2YxZC00MzIyLThhN2UtOGYxMjk4NjQ0YjJiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NDgwMTU5NjMsImNzcmYiOiJkNGU3NDMzMC03NTZhLTQxYmYtYTRhNS01ZjM2NmQxMDNhZTEiLCJleHAiOjE3NDgwMTY4NjN9.mcq439Jfz8OaFxnSmV_Nl2PEvD9_hq1xD7gdFVEKbQY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/events/{{event_id}}/diff/1/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"events",
+						"{{event_id}}",
+						"diff",
+						"1",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
