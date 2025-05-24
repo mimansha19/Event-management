@@ -16,19 +16,25 @@ Features
 Setup
 
 1. Clone the repository and navigate into it:
+
    git clone https://github.com/mimansha19/Event-management.git
+   
    cd event-management
 
-2. Create and activate a virtual environment:
+3. Create and activate a virtual environment:
+   
    python3 -m venv venv
+   
    source venv/bin/activate
 
-3. pip install -r requirements.txt
+5. pip install -r requirements.txt
 
-4. Initialize the database:
+6. Initialize the database:
    flask db init
+   
    flask db migrate -m "initial"
+   
    flask db upgrade
 
-5. Run the development server:
+8. Run the development server:
    python run.py
