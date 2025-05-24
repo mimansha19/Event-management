@@ -30,6 +30,7 @@ Setup
 5. pip install -r requirements.txt
 
 6. Initialize the database:
+   
    flask db init
    
    flask db migrate -m "initial"
